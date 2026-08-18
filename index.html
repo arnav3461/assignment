@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI, Machine Learning & Deep Learning | 3D Corporate Executive Deck</title>
+  <meta name="description" content="Interactive 3D Corporate Presentation on AI, Machine Learning vs Deep Learning, Algorithm Deep Dives, Driver Behavior Detection, and Text Classification.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Three.js Library for 3D Graphics -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 3D WebGL Canvas Layer -->
+  <canvas id="threeCanvas"></canvas>
+
+  <!-- Ambient Glow Background Overlay -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Main Container -->
+  <div class="presentation-wrapper">
+
+    <!-- Top Navigation Header -->
+    <header class="deck-header">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="ph-bold ph-cube"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AI ENGINEERING STRATEGY</span>
+          <span class="brand-subtitle">AI: ML vs DL</span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="slide-indicator" id="slideIndicator">SLIDE 01 / 10</div>
+        <div class="section-badge" id="sectionBadge">EXECUTIVE OVERVIEW</div>
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="btnNotes" title="Toggle Presenter Notes (Key: N)">
+          <i class="ph-bold ph-notepad"></i>
+          <span>Notes</span>
+        </button>
+        <button class="icon-btn" id="btnGrid" title="Slide Overview Grid (Key: G)">
+          <i class="ph-bold ph-squares-four"></i>
+        </button>
+        <button class="icon-btn" id="btnFullscreen" title="Toggle Fullscreen (Key: F)">
+          <i class="ph-bold ph-arrows-out-simple"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Slides Stage Container -->
+    <main class="slides-stage" id="slidesStage">
+
+      <!-- SLIDE 1: Title Slide -->
+      <section class="slide active" data-slide="1" data-section="EXECUTIVE OVERVIEW">
+        <div class="slide-content title-slide">
+          <div class="badge-pill">
+            <i class="ph-fill ph-sparkle"></i> 3D INTERACTIVE AI ASSESSMENT & DEFENSE
+          </div>
+          <h1 class="main-title">
+            Architecting <span class="gradient-text">Predictive Intelligence</span>
+          </h1>
+          <p class="subtitle">
+            A Strategic Framework: Machine Learning vs. Deep Learning Models for Complex Decision Systems, Driver Behavior Analytics & Text Classification.
+          </p>
+
+          <div class="hero-stats-grid">
+            <div class="stat-card glass-3d">
+              <div class="stat-icon"><i class="ph-bold ph-cpu"></i></div>
+              <div class="stat-value">Lightweight ML</div>
+              <div class="stat-label">Sub-5ms Edge Latency</div>
+            </div>
+            <div class="stat-card glass-3d">
+              <div class="stat-icon"><i class="ph-bold ph-neural-network"></i></div>
+              <div class="stat-value">Deep Learning</div>
+              <div class="stat-label">End-to-End Perception</div>
+            </div>
+            <div class="stat-card glass-3d">
+              <div class="stat-icon"><i class="ph-bold ph-git-fork"></i></div>
+              <div class="stat-value">Hybrid Cascade</div>
+              <div class="stat-label">Two-Tier Architecture</div>
+            </div>
+          </div>
+
+          <div class="presenter-footer">
+            <div class="presenter-meta">
+              <i class="ph-bold ph-user-circle"></i>
+              <span>Prepared for: AI & Systems Engineering Leadership</span>
+            </div>
+            <div class="press-hint">
+              <span>Press <kbd>→</kbd> or <kbd>Space</kbd> to proceed</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: Strategic Role of AI -->
+      <section class="slide" data-slide="2" data-section="FOUNDATIONS OF AI">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>The Strategic Purpose of AI</h2>
+            <p>Moving from Static Hand-Crafted Heuristics to Data-Driven Learning Systems</p>
+          </div>
+
+          <div class="paradigm-comparison">
+            <div class="paradigm-box traditional glass-3d">
+              <div class="paradigm-tag">TRADITIONAL PROGRAMMING</div>
+              <div class="flow-diagram">
+                <span class="flow-node">Input Data</span>
+                <i class="ph-bold ph-plus"></i>
+                <span class="flow-node highlight-red">Static Rules (if-else)</span>
+                <i class="ph-bold ph-arrow-right"></i>
+                <span class="flow-node">Rigid Output</span>
+              </div>
+              <p class="paradigm-desc">Fails on high-dimensional data, complex facial signals, noisy time-series telemetry, and contextual language nuance.</p>
+            </div>
+
+            <div class="paradigm-arrow">
+              <i class="ph-bold ph-arrows-left-right"></i>
+            </div>
+
+            <div class="paradigm-box ai-driven glass-3d">
+              <div class="paradigm-tag glow-tag">ARTIFICIAL INTELLIGENCE</div>
+              <div class="flow-diagram">
+                <span class="flow-node">Raw Data</span>
+                <i class="ph-bold ph-plus"></i>
+                <span class="flow-node highlight-green">Ground-Truth Labels</span>
+                <i class="ph-bold ph-arrow-right"></i>
+                <span class="flow-node highlight-blue">Self-Learned Model</span>
+              </div>
+              <p class="paradigm-desc">Learns non-linear mappings, generalizes to unseen edge cases, and continuously adapts to evolving environments.</p>
+            </div>
+          </div>
+
+          <div class="grid-3-col">
+            <div class="card glass-card glass-3d">
+              <div class="card-icon blue"><i class="ph-bold ph-waveform"></i></div>
+              <h3>Non-Linear Signals</h3>
+              <p>Extracts deep hidden features from high-frequency sensors, audio waveforms, video frames, and unstructured natural text.</p>
+            </div>
+            <div class="card glass-card glass-3d">
+              <div class="card-icon purple"><i class="ph-bold ph-arrows-clockwise"></i></div>
+              <h3>Continuous Adaptation</h3>
+              <p>Re-trains on new operational distributions without breaking legacy business logic or manual rule refactoring.</p>
+            </div>
+            <div class="card glass-card glass-3d">
+              <div class="card-icon green"><i class="ph-bold ph-lightning"></i></div>
+              <h3>Scalable Automation</h3>
+              <p>Executes complex cognitive inference in sub-milliseconds across millions of embedded edge devices.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: ML vs DL Strategic Decision Framework -->
+      <section class="slide" data-slide="3" data-section="DECISION ARCHITECTURE">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Machine Learning vs. Deep Learning</h2>
+            <p>Architectural Selection Framework & Engineering Decision Criteria</p>
+          </div>
+
+          <div class="matrix-table-wrapper glass-card glass-3d">
+            <table class="corporate-table">
+              <thead>
+                <tr>
+                  <th>Selection Dimension</th>
+                  <th>Traditional Machine Learning (ML)</th>
+                  <th>Deep Learning (DL)</th>
+                  <th>Architectural Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="ph-bold ph-table"></i> <strong>Data Modality</strong></td>
+                  <td><span class="pill blue">Structured / Tabular</span> CSVs, SQL metrics</td>
+                  <td><span class="pill purple">Unstructured</span> Vision, Audio, Text, Waves</td>
+                  <td>ML for engineered metrics; DL for raw streams</td>
+                </tr>
+                <tr>
+                  <td><i class="ph-bold ph-database"></i> <strong>Data Volume</strong></td>
+                  <td><span class="pill green">Small to Medium</span> (< 10k - 100k samples)</td>
+                  <td><span class="pill amber">Large Datasets</span> (> 100k+ samples)</td>
+                  <td>DL overfits on small data without transfer learning</td>
+                </tr>
+                <tr>
+                  <td><i class="ph-bold ph-gear"></i> <strong>Feature Engineering</strong></td>
+                  <td><span class="pill red">Manual Domain Knowledge</span> (FFT, SHAP)</td>
+                  <td><span class="pill green">Automated Learning</span> (Layers/Kernels)</td>
+                  <td>ML requires feature pipelines; DL learns end-to-end</td>
+                </tr>
+                <tr>
+                  <td><i class="ph-bold ph-cpu"></i> <strong>Compute & Latency</strong></td>
+                  <td><span class="pill green">Ultra-Low</span> (< 5ms on edge CPUs)</td>
+                  <td><span class="pill purple">High Compute</span> (Requires GPU/TPU/NPU)</td>
+                  <td>ML runs on microcontrollers; DL on edge GPUs</td>
+                </tr>
+                <tr>
+                  <td><i class="ph-bold ph-eye"></i> <strong>Explainability</strong></td>
+                  <td><span class="pill green">High</span> (SHAP values, Decision trees)</td>
+                  <td><span class="pill red">Black Box</span> (Grad-CAM, Attention maps)</td>
+                  <td>ML preferred for audited regulatory compliance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="rule-box glass-card glow-border glass-3d">
+            <div class="rule-icon"><i class="ph-bold ph-lightbulb"></i></div>
+            <div class="rule-text">
+              <strong>Architectural Rule of Thumb:</strong> Always establish a Lightweight Machine Learning baseline (e.g. XGBoost or SVM) first. Elevate to Deep Learning (CNN/LSTM/Transformers) when handling raw unstructured sensory/textual modalities or when feature engineering performance reaches a ceiling.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Machine Learning Algorithms Deep-Dive -->
+      <section class="slide" data-slide="4" data-section="ALGORITHM DEEP-DIVE">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Machine Learning Algorithms & Practical Use Cases</h2>
+            <p>Select an algorithm below to explore mathematical intuition and real-world implementations</p>
+          </div>
+
+          <!-- Interactive Tab Selector -->
+          <div class="algo-tabs" id="mlTabs">
+            <button class="algo-tab active" data-target="ml-xgboost"><i class="ph-bold ph-tree-structure"></i> XGBoost / LightGBM</button>
+            <button class="algo-tab" data-target="ml-rf"><i class="ph-bold ph-trees"></i> Random Forest</button>
+            <button class="algo-tab" data-target="ml-svm"><i class="ph-bold ph-intersect"></i> Support Vector Machines</button>
+            <button class="algo-tab" data-target="ml-nb"><i class="ph-bold ph-calculator"></i> Naive Bayes</button>
+            <button class="algo-tab" data-target="ml-lr"><i class="ph-bold ph-trend-up"></i> Linear/Logistic Regression</button>
+            <button class="algo-tab" data-target="ml-knn"><i class="ph-bold ph-dots-nine"></i> KNN & K-Means</button>
+          </div>
+
+          <!-- Tab Content Views -->
+          <div class="algo-content-container">
+
+            <!-- XGBoost -->
+            <div class="algo-panel active" id="ml-xgboost">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">GRADIENT BOOSTED DECISION TREES</div>
+                  <h3>XGBoost / LightGBM</h3>
+                  <p class="panel-desc">Sequential ensemble technique where trees are built iteratively to fit residual errors of preceding trees using gradient descent optimization.</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> Exceptional accuracy on structured tabular datasets</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Built-in missing value handling and regularization (\(L_1 / L_2\))</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Fast execution on CPU with tree-pruning optimization</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Telematics Risk Profiling</h4>
+                    <p>Real-time driver insurance risk scoring using CAN-Bus telemetry metrics (hard braking events/100km, speed variance, engine RPM spikes).</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>Metadata-Enriched Ticket Routing</h4>
+                    <p>Categorizing customer support inquiries by pairing engineered TF-IDF text features with structured user metadata (tier, account age).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Random Forest -->
+            <div class="algo-panel" id="ml-rf">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">BAGGING ENSEMBLE</div>
+                  <h3>Random Forest Classifier</h3>
+                  <p class="panel-desc">Constructs an ensemble of de-correlated decision trees trained on bootstrap samples of training data. Reduces variance through majority voting.</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> Highly resilient to overfitting and noisy feature inputs</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Computes global Feature Importance scores automatically</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Parallelizable training across multiple CPU cores</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Driver Style Classification</h4>
+                    <p>Categorizing trips into <em>Aggressive</em>, <em>Moderate</em>, or <em>Eco-Friendly</em> driving styles from trip summary metrics.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>Keyword-Based Document Categorization</h4>
+                    <p>Classifying legal documents based on frequency distributions of domain-specific keywords and document structural lengths.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SVM -->
+            <div class="algo-panel" id="ml-svm">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">KERNEL-BASED MARGIN MAXIMIZATION</div>
+                  <h3>Support Vector Machine (SVM)</h3>
+                  <p class="panel-desc">Identifies optimal hyper-plane maximizing margins between classes. Projects non-linear data into high dimensions via Kernel tricks (RBF, Poly).</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> Highly effective in high-dimensional sparse spaces</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Robust against overfitting in small sample size contexts</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Steering Stability Anomaly Detection</h4>
+                    <p>Classifying binary driver steering states (Attentive vs Swerving) from multi-axis gyroscope sensor streams.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>High-Dimensional Text Categorization</h4>
+                    <p>Classifying news articles or academic papers across thousands of TF-IDF vocabulary dimensions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Naive Bayes -->
+            <div class="algo-panel" id="ml-nb">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">PROBABILISTIC BAYESIAN MODEL</div>
+                  <h3>Naive Bayes Classifier</h3>
+                  <p class="panel-desc">Calculates posterior probabilities using Bayes' Theorem under conditional independence assumption across input features.</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> Ultra-fast training and sub-millisecond inference</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Requires very small training data volume to converge</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Distraction Indicator Scoring</h4>
+                    <p>Rapidly scoring driver distraction likelihood based on discrete categorical flags (Time of Day + Phone Touch + Speed Standard Deviation).</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>Classic Email Spam Filtering</h4>
+                    <p>Detecting spam vs ham messages using Multinomial Naive Bayes on word token probabilities.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logistic Regression -->
+            <div class="algo-panel" id="ml-lr">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">LINEAR PROBABILITY MODEL</div>
+                  <h3>Linear & Logistic Regression</h3>
+                  <p class="panel-desc">Applies linear parameter weighting combined with Sigmoid activation function \(\sigma(z) = \frac{1}{1 + e^{-z}}\) to yield probability outputs.</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> 100% white-box explainability via direct linear coefficients</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Ideal baseline benchmark for binary classification problems</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Speeding Risk Probability</h4>
+                    <p>Estimating real-time probability of overspeeding given instantaneous speed, throttle position, and road speed limits.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>Baseline Sentiment Polarity</h4>
+                    <p>Scoring text sentiment (+1 vs -1) using unigram word counts and logistic weights.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- KNN & K-Means -->
+            <div class="algo-panel" id="ml-knn">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">DISTANCE-BASED CLUSTERING</div>
+                  <h3>KNN & K-Means Clustering</h3>
+                  <p class="panel-desc">KNN classifies samples based on Euclidean distance to nearest neighbors. K-Means discovers unsupervised clusters by minimizing intra-cluster variance.</p>
+                  <ul class="panel-features">
+                    <li><i class="ph-bold ph-check-circle"></i> Non-parametric; makes no assumptions about data distribution</li>
+                    <li><i class="ph-bold ph-check-circle"></i> Perfect for discovering unlabelled natural groupings</li>
+                  </ul>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-car"></i> DRIVER BEHAVIOR USE CASE</div>
+                    <h4>Fleet Driver Archetype Discovery</h4>
+                    <p>Clustering unlabelled telematics logs to discover natural driver profiles (Commuters, Aggressive Delivery, Eco Drivers).</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION USE CASE</div>
+                    <h4>Unsupervised Feedback Grouping</h4>
+                    <p>Clustering customer support transcripts into topic clusters without manual annotation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Deep Learning Architectures Deep-Dive -->
+      <section class="slide" data-slide="5" data-section="DEEP LEARNING">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Deep Learning Architectures & Perception Systems</h2>
+            <p>End-to-end representation learning for vision, continuous time-series, and complex text contexts</p>
+          </div>
+
+          <div class="algo-tabs" id="dlTabs">
+            <button class="algo-tab active" data-target="dl-cnn"><i class="ph-bold ph-camera"></i> CNN (Computer Vision)</button>
+            <button class="algo-tab" data-target="dl-lstm"><i class="ph-bold ph-clock"></i> RNN / LSTM / GRU</button>
+            <button class="algo-tab" data-target="dl-transformer"><i class="ph-bold ph-cpu"></i> Transformers (BERT / ViT)</button>
+            <button class="algo-tab" data-target="dl-autoencoder"><i class="ph-bold ph-arrows-in-line-horizontal"></i> Autoencoders</button>
+            <button class="algo-tab" data-target="dl-hybrid"><i class="ph-bold ph-git-merge"></i> Hybrid CNN-LSTM</button>
+          </div>
+
+          <div class="algo-content-container">
+
+            <!-- CNN -->
+            <div class="algo-panel active" id="dl-cnn">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">SPATIAL PATTERN EXTRACTION</div>
+                  <h3>Convolutional Neural Networks (CNN)</h3>
+                  <p class="panel-desc">Applies 2D convolutional kernels over spatial grid inputs to extract hierarchical visual features (Edges \(\rightarrow\) Patterns \(\rightarrow\) Complex Objects).</p>
+                  <div class="architecture-diagram-mini">
+                    <span>Input Frame</span> \(\rightarrow\) <span>Conv2D + ReLU</span> \(\rightarrow\) <span>MaxPool</span> \(\rightarrow\) <span>Dense Classification</span>
+                  </div>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-video-camera"></i> DRIVER MONITORING SYSTEM (DMS)</div>
+                    <h4>In-Cabin Visual Distraction</h4>
+                    <p>Processes real-time infrared cabin video to detect eye closure (PERCLOS drowsiness), head pose tilt, phone usage, and seatbelt compliance.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> TEXT CLASSIFICATION</div>
+                    <h4>1D-CNN Phrase Extraction</h4>
+                    <p>Applies 1D kernels across word embedding vectors to extract local key phrases regardless of position in a sentence.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- LSTM -->
+            <div class="algo-panel" id="dl-lstm">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">TEMPORAL SEQUENCE MODELING</div>
+                  <h3>LSTMs & Gated Recurrent Units</h3>
+                  <p class="panel-desc">Utilizes memory cells equipped with Input, Forget, and Output gates to preserve long-term temporal hidden states without vanishing gradients.</p>
+                  <div class="architecture-diagram-mini">
+                    <span>Sequence \(X_t\)</span> \(\rightarrow\) <span>Forget Gate</span> \(\rightarrow\) <span>Cell Memory \(C_t\)</span> \(\rightarrow\) <span>Output \(H_t\)</span>
+                  </div>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-chart-line"></i> TELEMATICS TIME-SERIES</div>
+                    <h4>Continuous Swerve & Fatigue Detection</h4>
+                    <p>Analyzes sliding 10-second sequences of steering dynamics and pedal signals to catch progressive drowsiness or erratic driving.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> NLP SEQUENCE MODELING</div>
+                    <h4>Sequential Sentiment Polarity</h4>
+                    <p>Reads text sequentially to capture contextual modifier shifts (e.g. "Not only bad, but downright dangerous").</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transformer -->
+            <div class="algo-panel" id="dl-transformer">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">SELF-ATTENTION ARCHITECTURE</div>
+                  <h3>Transformers (BERT & Vision Transformer)</h3>
+                  <p class="panel-desc">Leverages multi-head self-attention mechanisms to compute contextual pairwise relationships across all tokens/patches in parallel.</p>
+                  <div class="architecture-diagram-mini">
+                    \(\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\)
+                  </div>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-bounding-box"></i> MULTI-MODAL TRANSFORMERS</div>
+                    <h4>Spatio-Temporal Fusion</h4>
+                    <p>Vision Transformer (ViT) fusing cabin video frames with CAN-Bus telemetry streams for multi-modal distraction scoring.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-text-align-left"></i> STATE-OF-THE-ART NLP</div>
+                    <h4>BERT / RoBERTa Classification</h4>
+                    <p>Contextual intent categorization, toxic comment detection, and fine-grained customer ticket classification.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Autoencoders -->
+            <div class="algo-panel" id="dl-autoencoder">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">UNSUPERVISED ANOMALY DETECTION</div>
+                  <h3>Autoencoders & VAEs</h3>
+                  <p class="panel-desc">Compresses raw data through encoder bottleneck into lower-dimensional latent space and reconstructs it. High reconstruction loss signals anomalies.</p>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-warning"></i> ANOMALOUS MANEUVERS</div>
+                    <h4>Unsupervised Driving Anomaly Detection</h4>
+                    <p>Detects rare near-collision events or unusual dangerous maneuvers without requiring explicit human labeling.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-gear"></i> PREDICTIVE MAINTENANCE</div>
+                    <h4>Equipment Vibration Failure Signals</h4>
+                    <p>Detecting high-frequency acoustic/vibrational anomalies in industrial machinery prior to breakdown.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hybrid -->
+            <div class="algo-panel" id="dl-hybrid">
+              <div class="grid-2-col">
+                <div class="glass-card panel-info glass-3d">
+                  <div class="panel-header-tag">SPATIO-TEMPORAL FUSION</div>
+                  <h3>Hybrid CNN-LSTM Networks</h3>
+                  <p class="panel-desc">Employs 2D-CNN feature extractor per frame to isolate spatial representations, feeding output vectors into an LSTM sequence layer.</p>
+                </div>
+                <div class="usecase-card-pair">
+                  <div class="usecase-box driver glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-video-camera"></i> VIDEO DISTRACTION FLOW</div>
+                    <h4>Dynamic Driver Action Tracking</h4>
+                    <p>Distinguishes quick 0.5s glance at mirrors from continuous 4.0s prolonged phone usage across consecutive video frames.</p>
+                  </div>
+                  <div class="usecase-box text glass-3d">
+                    <div class="uc-tag"><i class="ph-bold ph-waveform"></i> SPEECH TEXT CLASSIFICATION</div>
+                    <h4>Audio Telematics + Text Transcripts</h4>
+                    <p>Classifying spoken emergency driver call audio into urgent dispatch categories.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Specialized Use Case 1 - Driver Behavior Detection -->
+      <section class="slide" data-slide="6" data-section="APPLICATION DEEP-DIVE">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Use Case Deep-Dive: Driver Behavior Detection System</h2>
+            <p>End-to-End Multimodal In-Vehicle Perception & Edge Telematics Architecture</p>
+          </div>
+
+          <div class="usecase-architecture-grid">
+            
+            <!-- Left Side: Pipeline Visual -->
+            <div class="glass-card arch-left glass-3d">
+              <h3>System Data Pipeline</h3>
+              
+              <div class="pipeline-step">
+                <div class="step-num">1</div>
+                <div class="step-details">
+                  <h4>Cabin Camera Feed (Vision)</h4>
+                  <p>Infrared 1080p @ 30 FPS. Passed to <strong>MobileNet-V3 CNN</strong> to compute facial landmarks, eye aspect ratio (EAR), and hand bounding boxes.</p>
+                </div>
+              </div>
+
+              <div class="pipeline-step">
+                <div class="step-num">2</div>
+                <div class="step-details">
+                  <h4>Vehicle CAN-Bus Stream (Sensors)</h4>
+                  <p>100Hz IMU, Steering Angle, Throttle, Brake Pressure. Passed to <strong>Lightweight XGBoost / 1D-LSTM</strong> sliding window model.</p>
+                </div>
+              </div>
+
+              <div class="pipeline-step">
+                <div class="step-num">3</div>
+                <div class="step-details">
+                  <h4>Edge Fusion Center (NVIDIA Jetson)</h4>
+                  <p>Blends visual distraction probability with sensor swerve metrics inside a <strong>Two-Tier Cascade Rule Engine</strong>.</p>
+                </div>
+              </div>
+
+              <div class="pipeline-step alert-step">
+                <div class="step-num"><i class="ph-bold ph-bell-ringing"></i></div>
+                <div class="step-details">
+                  <h4>HMI Driver Alert & Cloud Telematics</h4>
+                  <p>Triggers audio/haptic cabin warnings within <strong>< 50ms</strong> and logs fleet risk event to enterprise cloud.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Classification Matrix -->
+            <div class="glass-card arch-right glass-3d">
+              <h3>Behavior Classification Breakdown</h3>
+              
+              <div class="behavior-card danger">
+                <div class="bh-header">
+                  <span class="bh-title"><i class="ph-bold ph-eye-slash"></i> Drowsiness / Sleep Episode</span>
+                  <span class="bh-tech">CNN + PERCLOS</span>
+                </div>
+                <p>Eye closure duration > 1.5 seconds or sustained yawning micro-expressions.</p>
+              </div>
+
+              <div class="behavior-card warning">
+                <div class="bh-header">
+                  <span class="bh-title"><i class="ph-bold ph-device-mobile"></i> Mobile Phone Distraction</span>
+                  <span class="bh-tech">YOLO-v8 / CNN</span>
+                </div>
+                <p>Hand object detection showing phone holding near steering wheel or lap gaze.</p>
+              </div>
+
+              <div class="behavior-card warning">
+                <div class="bh-header">
+                  <span class="bh-title"><i class="ph-bold ph-path"></i> Erratic Swerving / Intoxication</span>
+                  <span class="bh-tech">LSTM Telematics</span>
+                </div>
+                <p>High lateral acceleration variance coupled with continuous steering correction spikes.</p>
+              </div>
+
+              <div class="behavior-card info">
+                <div class="bh-header">
+                  <span class="bh-title"><i class="ph-bold ph-gauge"></i> Aggressive Braking / Tailgating</span>
+                  <span class="bh-tech">XGBoost Telemetry</span>
+                </div>
+                <p>Longitudinal G-force deceleration exceeding -0.4g threshold.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: Specialized Use Case 2 - Text Classification -->
+      <section class="slide" data-slide="7" data-section="APPLICATION DEEP-DIVE">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Use Case Deep-Dive: Scalable Text Classification</h2>
+            <p>From Classical TF-IDF Baselines to Deep Transformer NLP Architectures</p>
+          </div>
+
+          <div class="grid-2-col">
+            
+            <!-- Classical ML Text Approach -->
+            <div class="glass-card text-approach-card glass-3d">
+              <div class="approach-badge blue">CLASSICAL ML APPROACH</div>
+              <h3>TF-IDF + Linear SVM / Naive Bayes</h3>
+              <div class="approach-pipeline">
+                <span class="p-node">Raw Text</span> \(\rightarrow\) 
+                <span class="p-node">Tokenization & Stopwords</span> \(\rightarrow\) 
+                <span class="p-node">TF-IDF Vectorizer</span> \(\rightarrow\) 
+                <span class="p-node">Linear SVM</span>
+              </div>
+              <ul class="approach-list">
+                <li><i class="ph-bold ph-check"></i> <strong>Inference Speed:</strong> Sub-millisecond (< 1ms per document)</li>
+                <li><i class="ph-bold ph-check"></i> <strong>Memory Footprint:</strong> Minimal (< 50MB RAM)</li>
+                <li><i class="ph-bold ph-check"></i> <strong>Hardware:</strong> Standard CPU execution</li>
+                <li><i class="ph-bold ph-x"></i> <strong>Limitation:</strong> Ignores word order and complex semantic context</li>
+              </ul>
+              <div class="best-for">
+                <strong>Best Used For:</strong> Email spam filtering, rapid sentiment keywords, high-volume log filtering.
+              </div>
+            </div>
+
+            <!-- Deep Transformer Approach -->
+            <div class="glass-card text-approach-card highlight-purple glass-3d">
+              <div class="approach-badge purple">DEEP LEARNING APPROACH</div>
+              <h3>Fine-Tuned BERT / RoBERTa Transformer</h3>
+              <div class="approach-pipeline">
+                <span class="p-node">Raw Text</span> \(\rightarrow\) 
+                <span class="p-node">WordPiece Tokenizer</span> \(\rightarrow\) 
+                <span class="p-node">Transformer Layers + Self-Attention</span> \(\rightarrow\) 
+                <span class="p-node">Softmax</span>
+              </div>
+              <ul class="approach-list">
+                <li><i class="ph-bold ph-check"></i> <strong>Inference Speed:</strong> 15ms - 45ms (GPU / ONNX optimized)</li>
+                <li><i class="ph-bold ph-check"></i> <strong>Context Understanding:</strong> Deep bidirectional contextual semantics</li>
+                <li><i class="ph-bold ph-check"></i> <strong>Accuracy:</strong> 96.8% F1-Score on ambiguous text</li>
+                <li><i class="ph-bold ph-warning"></i> <strong>Requirement:</strong> GPU Acceleration / Quantized Runtime</li>
+              </ul>
+              <div class="best-for">
+                <strong>Best Used For:</strong> Multi-class support ticket intent routing, toxic comment moderation, legal contract analysis.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="benchmark-bar glass-card glass-3d">
+            <div class="bm-title"><i class="ph-bold ph-trophy"></i> Empirical Benchmark Performance (Customer Feedback Benchmark)</div>
+            <div class="bm-stats">
+              <div class="bm-item"><span>Naive Bayes:</span> <strong>81.2% F1</strong> (0.4ms)</div>
+              <div class="bm-item"><span>Linear SVM:</span> <strong>86.5% F1</strong> (1.1ms)</div>
+              <div class="bm-item"><span>XGBoost + Metadata:</span> <strong>89.1% F1</strong> (3.2ms)</div>
+              <div class="bm-item highlight"><span>BERT-Base:</span> <strong>96.8% F1</strong> (22.0ms)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Predictive Maintenance & Model Performance -->
+      <section class="slide" data-slide="8" data-section="BENCHMARKS & EVALUATION">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Model Performance Progression & Trade-off Analysis</h2>
+            <p>Empirical Validation across Machine Learning, Deep Learning, and Hybrid Deployments</p>
+          </div>
+
+          <div class="grid-2-col">
+            
+            <!-- Progression Chart Visual -->
+            <div class="glass-card chart-card glass-3d">
+              <h3>Accuracy Progression across Model Iterations</h3>
+              <div class="visual-chart">
+                <div class="chart-bar-group">
+                  <div class="bar-fill b1" style="height: 74%;"><span>74%</span></div>
+                  <div class="bar-label">Baseline ML</div>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="bar-fill b2" style="height: 84%;"><span>84%</span></div>
+                  <div class="bar-label">Feature Opt ML</div>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="bar-fill b3" style="height: 90%;"><span>90%</span></div>
+                  <div class="bar-label">1D-CNN</div>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="bar-fill b4" style="height: 94%;"><span>94%</span></div>
+                  <div class="bar-label">CNN-LSTM</div>
+                </div>
+                <div class="chart-bar-group highlight">
+                  <div class="bar-fill b5" style="height: 96.8%;"><span>96.8%</span></div>
+                  <div class="bar-label">Hybrid Cascade</div>
+                </div>
+              </div>
+              <p class="chart-caption">Hybrid DL-ML pipeline yields maximum F1-Score (96.8%) while maintaining sub-10ms mean response times for edge gateways.</p>
+            </div>
+
+            <!-- Trade-off Metrics Box -->
+            <div class="glass-card trade-off-details glass-3d">
+              <h3>Core Evaluation Metrics</h3>
+              
+              <div class="metric-row">
+                <div class="m-label">Recall on Critical Failure Events</div>
+                <div class="m-bar-wrapper">
+                  <div class="m-bar-fill green" style="width: 95%;"></div>
+                </div>
+                <div class="m-val">95.2%</div>
+              </div>
+
+              <div class="metric-row">
+                <div class="m-label">False Alarm Rate (FAR)</div>
+                <div class="m-bar-wrapper">
+                  <div class="m-bar-fill blue" style="width: 15%;"></div>
+                </div>
+                <div class="m-val">1.4%</div>
+              </div>
+
+              <div class="metric-row">
+                <div class="m-label">Edge Inference Latency</div>
+                <div class="m-bar-wrapper">
+                  <div class="m-bar-fill purple" style="width: 25%;"></div>
+                </div>
+                <div class="m-val">8.4 ms</div>
+              </div>
+
+              <div class="metric-row">
+                <div class="m-label">Compute Cost Reduction</div>
+                <div class="m-bar-wrapper">
+                  <div class="m-bar-fill amber" style="width: 65%;"></div>
+                </div>
+                <div class="m-val">-65%</div>
+              </div>
+
+              <div class="summary-callout">
+                <i class="ph-bold ph-shield-check"></i>
+                <span><strong>SHAP Explainability Validation:</strong> SHAP values confirm steering angle variance and eye aspect ratio (EAR) as top predictive features.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Production Architecture & Risk Management -->
+      <section class="slide" data-slide="9" data-section="DEPLOYMENT & RISKS">
+        <div class="slide-content">
+          <div class="section-header">
+            <h2>Production Edge Architecture & Risk Mitigation</h2>
+            <p>Deploying Optimized TensorRT Models to Edge Gateways with Robust Guardrails</p>
+          </div>
+
+          <div class="grid-3-col">
+            
+            <!-- Risk 1 -->
+            <div class="card glass-card glass-3d">
+              <div class="card-icon red"><i class="ph-bold ph-trend-down"></i></div>
+              <h3>Concept & Data Drift</h3>
+              <p>Model performance degrades over time due to seasonal camera lighting changes or vehicle aging.</p>
+              <div class="mitigation-box">
+                <strong>Mitigation:</strong> Continuous Kolmogorov-Smirnov (KS) drift metrics triggering automated cloud re-training pipelines.
+              </div>
+            </div>
+
+            <!-- Risk 2 -->
+            <div class="card glass-card glass-3d">
+              <div class="card-icon amber"><i class="ph-bold ph-shield-warning"></i></div>
+              <h3>Silent Model Failures</h3>
+              <p>Deep learning models making high-confidence incorrect predictions on out-of-distribution inputs.</p>
+              <div class="mitigation-box">
+                <strong>Mitigation:</strong> Fallback rule-engine triggers if model confidence score drops below 70% threshold.
+              </div>
+            </div>
+
+            <!-- Risk 3 -->
+            <div class="card glass-card glass-3d">
+              <div class="card-icon blue"><i class="ph-bold ph-lock-key"></i></div>
+              <h3>Data Leakage & Privacy</h3>
+              <p>Risks associated with streaming raw video feeds to centralized cloud servers.</p>
+              <div class="mitigation-box">
+                <strong>Mitigation:</strong> Edge-only inference on NVIDIA Jetson using TensorRT; only aggregated metrics synced to cloud.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Architecture Flow -->
+          <div class="edge-arch-banner glass-card glow-border glass-3d">
+            <div class="arch-tag">PRODUCTION EDGE STACK</div>
+            <div class="arch-flow-inline">
+              <span>Sensor Stream</span> \(\rightarrow\) 
+              <span>Microcontroller (Lightweight ML)</span> \(\rightarrow\) 
+              <span>TensorRT Edge GPU (Deep Perception)</span> \(\rightarrow\) 
+              <span>AWS Cloud Telematics Log</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: Strategic Recommendation & Q&A -->
+      <section class="slide" data-slide="10" data-section="STRATEGIC RECOMMENDATION">
+        <div class="slide-content final-slide">
+          <div class="section-header center">
+            <div class="badge-pill green"><i class="ph-fill ph-check-circle"></i> STRATEGIC ARCHITECTURAL RECOMMENDATION</div>
+            <h2 class="hero-recommendation-title">Deploy a <span class="gradient-text">Two-Tier Hybrid Cascade</span></h2>
+            <p>Optimizing Edge Compute Cost by 65% while Preserving Maximum Perception Accuracy</p>
+          </div>
+
+          <div class="hybrid-cascade-visual">
+            <div class="tier-card tier-1 glass-3d">
+              <div class="tier-header">
+                <span class="tier-num">TIER 1</span>
+                <h3>Lightweight ML Screening</h3>
+              </div>
+              <div class="tier-body">
+                <div class="tier-tech">XGBoost / SVM on Edge Microcontroller</div>
+                <p>Runs continuously at <strong>< 5ms latency</strong> with minimal power consumption. Screens 95% of routine sensor telemetry locally.</p>
+              </div>
+            </div>
+
+            <div class="cascade-arrow">
+              <i class="ph-bold ph-caret-right"></i>
+              <span>Trigger on Anomaly</span>
+            </div>
+
+            <div class="tier-card tier-2 glass-3d">
+              <div class="tier-header">
+                <span class="tier-num">TIER 2</span>
+                <h3>Deep Perception Engine</h3>
+              </div>
+              <div class="tier-body">
+                <div class="tier-tech">CNN-LSTM & Transformers on Edge GPU</div>
+                <p>Activated only when Tier 1 detects anomalous signals or complex vision distraction events. Delivers <strong>96.8% precision</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="qa-footer glass-card glass-3d">
+            <div class="qa-left">
+              <h3>Questions & Technical Discussion</h3>
+              <p>Key Takeaway: Start with ML baselines for rapid validation; elevate to hybrid DL architectures as data volume matures.</p>
+            </div>
+            <div class="qa-right">
+              <button class="primary-btn" id="btnRestartDeck">
+                <i class="ph-bold ph-arrow-counter-clockwise"></i> Replay Presentation
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar Controls -->
+    <footer class="deck-footer">
+      <div class="footer-left">
+        <button class="nav-btn" id="prevBtn" title="Previous Slide (Left Arrow)">
+          <i class="ph-bold ph-caret-left"></i> Previous
+        </button>
+        <button class="nav-btn" id="nextBtn" title="Next Slide (Right Arrow or Space)">
+          Next <i class="ph-bold ph-caret-right"></i>
+        </button>
+      </div>
+
+      <div class="footer-center">
+        <div class="slide-dots" id="slideDots">
+          <!-- Rendered dynamically in JS -->
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <button class="icon-btn-text" id="btnAutoplay" title="Toggle Auto Play Slides">
+          <i class="ph-bold ph-play" id="playIcon"></i>
+          <span>Auto Play</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Presenter Notes Drawer Modal -->
+  <div class="notes-modal" id="notesModal">
+    <div class="notes-modal-content glass-card">
+      <div class="notes-header">
+        <h3><i class="ph-bold ph-notepad"></i> Presenter Notes</h3>
+        <button class="close-btn" id="closeNotes"><i class="ph-bold ph-x"></i></button>
+      </div>
+      <div class="notes-body" id="notesBody">
+        <!-- Filled dynamically per slide -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide Grid Overview Drawer Modal -->
+  <div class="grid-modal" id="gridModal">
+    <div class="grid-modal-content glass-card">
+      <div class="notes-header">
+        <h3><i class="ph-bold ph-squares-four"></i> Slide Overview</h3>
+        <button class="close-btn" id="closeGrid"><i class="ph-bold ph-x"></i></button>
+      </div>
+      <div class="grid-slides-container" id="gridSlidesContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  
+  <!-- 3D Scene Script & Main Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
